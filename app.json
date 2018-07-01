@@ -1,0 +1,91 @@
+{
+  "pages": [
+    "pages/loading/loading",
+    "pages/main/main2",
+    "pages/teacher/main",
+    "pages/teacher/regist",
+    "pages/teacher/agreement",
+    "pages/student/main",
+    "pages/student/allOrder",
+    "pages/student/myteacher",
+    "pages/student/user",
+    "pages/student/sendQuestion",
+    "pages/student/orderDetail",
+    "pages/test/chating",
+    "pages/historyfromcloud/historyfromcloud",
+    "pages/student/teacherDetail",
+    "pages/student/userInfo",
+    "pages/student/userWallet",
+    "pages/student/helpHome",
+    "pages/student/myOrderHome",
+    "pages/student/search",
+    "pages/student/comment",
+    "pages/test/videoCall2",
+    "pages/test/videoCall",
+    "pages/chat/test",
+    "pages/chat/chatRoom",
+    "pages/test/chatList",
+    "pages/teacher/user",
+    "pages/teacher/myClass",
+    "pages/teacher/myStudent",
+    "pages/teacher/studentDetail",
+    "pages/teacher/userWallet",
+    "pages/teacher/walletDetail",
+    "pages/teacher/order",
+    "pages/teacher/finishedClass",
+    "pages/teacher/commentOrder",
+    "pages/teacher/finishedOrder",
+    "pages/teacher/helpHome",
+    "pages/teacher/orderDetail",
+    "pages/common/title",
+    "pages/common/search_title",
+    "pages/student/walletDetail",
+    "pages/student/walletCZ",
+    "pages/student/myWrongHome",
+    "pages/student/wrongList",
+    "pages/student/myClassHome",
+    "pages/student/myReleaseHome",
+    "pages/student/test"
+  ],
+  "networkTimeout": {
+    "request": 60000
+  },
+  "window": {
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#888",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "腾讯视频云",
+    "navigationBarTextStyle": "#fff",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/student/main",
+        "text": "首页",
+        "iconPath": "pages/Resources/ic_tab_home.png",
+        "selectedIconPath": "pages/Resources/ic_tab_home_light.png"
+      },
+      {
+        "pagePath": "pages/student/allOrder",
+        "text": "我的订单",
+        "iconPath": "pages/Resources/tab_order.png",
+        "selectedIconPath": "pages/Resources/tab_order_light.png"
+      },
+      {
+        "pagePath": "pages/student/myteacher",
+        "text": "我的老师",
+        "iconPath": "pages/Resources/tab_myteacher.png",
+        "selectedIconPath": "pages/Resources/tab_myteacher_light.png"
+      },
+      {
+        "pagePath": "pages/student/user",
+        "text": "我的",
+        "iconPath": "pages/Resources/ic_tab_user.png",
+        "selectedIconPath": "pages/Resources/ic_tab_user_light.png"
+      }
+    ],
+    "selectedColor": "#8E388E"
+  }
+}

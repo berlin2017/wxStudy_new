@@ -1,0 +1,19 @@
+<!--pages/teacher/helpHome.wxml-->
+<view class='main_container'>
+  <include src='../common/title'/>
+  <view class='content'>
+    <view class='item_layout' wx:for='{{questions}}'>
+      <view class='item_title_layout' bindtap='show' data-index='{{index}}'>
+      <view class='item_point'>·</view>
+      <view class='item_title'>{{item.title}}</view>
+      <image class='item_arrow' src='{{item.showDetail ? "../Resources/arrow_on.png" : "../Resources/arrow_down.png"}}'></image>
+      </view>
+    <import src="../..//wxParse/wxParse.wxml"/>
+   
+       <view class='item_answer' wx:if='{{item.showDetail}}'>
+         <template is="wxParse" data="{{wxParseData:item.article.nodes}}" />
+       </view> 
+
+    </view>
+  </view>
+</view>

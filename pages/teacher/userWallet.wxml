@@ -1,0 +1,73 @@
+<!--pages/teacher/userWallet.wxml-->
+<view class='main_container'>
+
+  <include src='../common/title'/>
+
+  <view class='content'>
+
+    <view class='top_header' style='background: #1f6f3a;'>
+      <view class='yue_name'>账户余额(优豆)</view>
+
+      <view class='yue_value'>{{money}}</view>
+    </view>
+
+    <view class='cz_layout' style=' margin-top: 10px; border-top: 1px solid gainsboro;' bindtap='showDialog'>
+      <image src='../Resources/ic_cz.png' mode='scaleToFill' class='cz_image' style='background: #e24a05;'></image>
+
+      <view class='cz_name'>提现</view>
+
+      <image class='arrow' src='../Resources/ic_arrow_right_black.png'></image>
+    </view>
+
+     <view class='cz_layout' bindtap='toDetail'>
+      <image src='../Resources/ic_wallet_detail.png' mode='scaleToFill' class='cz_image' style='background: #2ca559;'></image>
+
+      <view class='cz_name'>账单明细</view>
+
+      <image class='arrow' src='../Resources/ic_arrow_right_black.png'></image>
+    </view>
+
+
+      <view class='cz_layout' bindtap='toDetail' style='margin-top:20px;border-top:1px solid gainsboro;display:none;' bindtap='showDialog'>
+      <image src='../Resources/ic_wallet_detail.png' mode='scaleToFill' class='cz_image' style='background: #2ca559;'></image>
+
+      <view class='cz_name'>提现</view>
+
+      <image class='arrow' src='../Resources/ic_arrow_right_black.png'></image>
+    </view>
+
+        <text class='info_text'>提现说明
+1优豆 = 1元人民币
+1、提现打款周期：工作日当日12:00之前提现的金额，1-3个工作日内安排打款，工作日当日12:00之后提现的金额，次日开始，1-3个工作日安排打款。节假日和周六、周日顺延。
+如有疑问请联系客服：025—83118895
+ 
+2、提现要求
+（1）请在“提现”中填写准确支付宝账号。
+（2）支付宝设置要求：支付宝账户必须实名认证且收款人姓名必须是支付宝实名认证身份证上的姓名。
+（5）提现申请提交后，可以在“我的账户/账户明细”中查看提现记录。
+（6）提现金额要求最低100元或100元的整倍数，每个工作日只提现结算1次</text>
+
+  </view>
+
+</view>
+
+<view class='dialog' style='width:100%;height:100%;position:fixed;top:0px;z-index:1000000;'wx:if='{{isShowDialog}}' >
+
+  <view class='cover_layout' style='height:100%;background:#373737;opacity:0.5;' bindtap='dismiss'></view>
+
+  <view class='dialog_layout' style='width:90%;background:white;opacity:1;border-radius:20px;text-align:center;position: absolute;top: 50%;transform: translateY(-50%);left:5%;overflow:hidden;'>
+  <form bindsubmit='commit'>
+    <view class='dialog_title' style='line-height:60px;text-align:center;background:#268746;color:white;font-size:21px; '>修改提现信息</view>
+    <view style='margin-left:20px;width:90%;margin-left:auto;margin-right:auto;text-align:left;line-height:30px;margin-top:10px;'>提现金额(优豆)</view>
+    <input style='border-radius:1px;background:whiteSmoke;width:90%;margin-left:auto;margin-right:auto;height:40px;text-align:left;' placeholder='请输入提现金额' type='number' name='money'></input>
+
+     <view style='margin-left:20px;width:90%;margin-left:auto;margin-right:auto;text-align:left;line-height:30px;margin-top:10px;'>支付宝账号</view>
+    <input style='border-radius:1px;background:whiteSmoke;width:90%;margin-left:auto;margin-right:auto;height:40px;text-align:left;' placeholder='请输入支付宝账号' type='phone' name='account'></input>
+
+    <button style='background:#7647a0;width:80%;margin-left:auto;margin-right:auto;height:40px;color:white;margin-top:20px;margin-bottom:20px;border-radius:20px;text-algin:center;line-height:40px;' form-type='submit'>确认</button>
+    </form>
+  </view>
+  
+
+</view>
+

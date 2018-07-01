@@ -1,0 +1,29 @@
+<!--pages/student/walletDetail.wxml-->
+
+<view class='main_container'>
+
+  <include src='../common/title' />
+
+  <view class='content'>
+    <include src='../common/empty' wx:if='{{list.length<=0}}' />
+    <include src='../common/empty' wx:if='{{!list}}' />
+    <view class='list' wx:if='{{list.length>0}}'>
+      <view class='item_layout' wx:for='{{list}}'>
+        <view class='item_money'>
+          <view style='float:left;'>金额：</view>
+          <view style='color:orange;float:left;font-size:21px;line-height:30px;text-align:center;'>{{item.money}}优豆</view>
+        </view>
+
+        <!-- <view class='item_ddbh'>订单编号：{{item.out_trade_no}}</view> -->
+        <view class='item_time' wx:if='{{item.type==1}}'>描述：订单收入{{item.money}}优豆</view>
+         <view class='item_time' wx:if='{{item.type==2}}'>描述：提现减少{{item.money}}优豆</view>
+          <view class='item_time' wx:if='{{item.type==3}}'>描述：接单奖励获得{{item.money}}优豆</view>
+           <!-- <view class='item_time' wx:if='{{item.type==5}}'>描述：提现失败获得{{item.money}}优豆</view> -->
+        <view class='item_time'>时间：{{item.time}}</view>
+        
+      </view>
+    </view>
+
+  </view>
+
+</view>

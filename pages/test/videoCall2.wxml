@@ -1,0 +1,14 @@
+<!--pages/push/push.wxml-->
+<view style="width:100%;height: 80%; background-color: black;">
+  <view style="width:100%;height:100%;">
+    <live-pusher
+      style="width:100%; height: 100%;"
+      id="camera-push"
+      waiting-image="https://mc.qcloudimg.com/static/img/daeed8616ac5df256c0591c22a65c4d3/pause_publish.jpg"
+      url="rtmp://3891.livepush.myqcloud.com/live/3891_user_333a75ea_1d51?bizid=3891&txSecret=02c8fbc64b320e87cf8712150e92c633&txTime=5AE91422" 
+      enable-camera="true"
+      autopush="true"
+      bindstatechange="onPushEvent">
+    </live-pusher> 
+  </view>
+</view>

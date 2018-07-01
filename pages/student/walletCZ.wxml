@@ -1,0 +1,35 @@
+<!--pages/student/walletCZ.wxml-->
+<view class='main_container'>
+
+  <include src='../common/title' />
+
+  <view class='content'>
+
+    <view class='zan-col zan-col-8' wx:for='{{moneys}}' style=' margin-top:20px;width:33.3333%;float:left;box-sizing:border-box;' bindtap='changeIndex' data-index='{{index}}'>
+      <view class="{{selectIndex== index ? 'item_layout_on' : 'item_layout'}}">
+      <view style='text-align:center; margin-top: 20px;'>
+      <text class='item_value'>{{item.cz_money}}</text>
+
+        <text class='item_name'>优豆</text>
+      </view>
+        
+        <view class='item_remark' wx:if='{{item.zs_money>0}}'>赠送{{item.zs_money}}优豆</view>
+      </view>
+    </view>
+
+    <!-- <input placeholder='输入充值金额' type='number' style='background:whiteSmoke;height:40px;clear:both;margin:10px;margin-top:10px;' value='{{money}}'></input> -->
+
+    <view style='clear:both;width:94%;margin-left:auto;margin-right:auto;padding-top:20px;'>
+    <text style='font-size:13px;color:#8f8f94;'>充值说明
+1元人民币 = 1优豆
+微信支付，即时到账
+账户余额有效期：自充值日起至用完即止，不可提现。
+
+若有其它疑问，可拨打客服电话025—83118895</text>
+    </view>
+
+    <button class='home_send_btn' bindtap='pay'>立即充值</button>
+
+  </view>
+
+</view>

@@ -1,0 +1,47 @@
+<view class='main_container' style='margin-bottom:106rpx;'>
+
+  <swiper indicator-dots='true' indicator-color='white' indicator-active-color='#268746' autoplay='true' class='swip'>
+    <block wx:for="{{images}}">
+      <swiper-item>
+        <image src="{{item.pic}}" class="slide-image" mode='scaleToFill' />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- <view> -->
+    <view class='item_layout' style='border-radius:10px;width:94%;margin-left:3%;background:#edeff5;margin-top:10px;margin-bottom:10px;display:flex;flex-direction: column;position:relative;overflow:hidden;' wx:for='{{orders}}' wx:if='{{orders.length>0}}' bindtap ='toDetail' data-index='{{index}}'>
+
+      <view style='display:fixed;'>
+        <view class='subject_name'>{{item.kemu_name}}</view>
+
+        <view class='grade_name'>[{{item.nianji_name}}]</view>
+      </view>
+
+      <view style='display:fixed;'>
+        <image class='item_image' src='{{item.pic}}' mode='scaleToFill' style='width:{{imageWidth}}px;height:{{imageWidth*0.75}}px'></image>
+        <view style='float:left;display:flex;flex-direction: column;'>
+          <view>
+            <image class='user_image' mode='scaleToFill' src='{{item.student_pic}}'></image>
+            <view class='user_name'>{{item.student_name}}</view>
+          </view>
+          <view class='user_money'>{{item.price}}豆</view>
+          <view class='item_time'>{{item.time}}</view>
+        </view>
+
+      </view>
+      <view style='display:fixed;clear:both;'>
+        <view style='float:left;color:gray;display:inline-block;line-height:40px;width:15%;font-size:15px;margin-left:10px;'>备注:</view>
+        <view style='float:left;display:inline;display:inline-block;margin-left:10px;width:78%;font-size:15px;line-height:40px;height:40px;overflow:hidden;'>{{item.beizhu}}</view>
+      </view>
+      <!-- <form bindsubmit='confirmOrder' report-submit> -->
+      <button style='background:#7647a0; width:160px;height:160px;position:absolute;top:-80px;right:-80px;border-radius:80px;color:white;' >
+        <view style='margin-top:100px;width:80px;text-align:center;line-height:20px;'>详情</view>
+       </button> 
+      <!-- </form> -->
+    </view>
+  <!-- </view> -->
+
+</view>
+
+<import src="tabbar.wxml" />
+<template is="tabBar" data="{{tabBar:bindData.tabBar}}" />

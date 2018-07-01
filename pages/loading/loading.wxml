@@ -1,0 +1,9 @@
+<!--pages/loading/loading.wxml-->
+<view class='loading_container'>
+
+  <image class='loading_ad' src='../Resources/logo.jpg'></image>
+
+ <button bindgetuserinfo="onGetUserinfo" 
+open-type="getUserInfo" type="primary" style='position:fixed;bottom:0px;width:100%;clear:both;left:0px;background-color:#7647a0;'>点击进入</button>
+
+</view>
