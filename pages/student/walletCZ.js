@@ -29,7 +29,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/gifts',
+      url: 'https://weixin.ywkedu.com/index.php/App/gifts',
       success:function(res){
         that.setData({
           moneys:res.data
@@ -107,7 +107,7 @@ Page({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         console.log(result);
         wx.request({
-          url: 'https://weixin.ywkedu.com/App/zhifu',
+          url: 'https://weixin.ywkedu.com/index.php/App/zhifu',
           // method: 'POST',
           // header: {
           //   'content-type': 'application/x-www-form-urlencoded'
@@ -156,7 +156,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/zhifu_order',
+      url: 'https://weixin.ywkedu.com/index.php/App/zhifu_order',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'

@@ -66,7 +66,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/teacher_indent_my',
+      url: 'https://weixin.ywkedu.com/index.php/App/teacher_indent_my',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'

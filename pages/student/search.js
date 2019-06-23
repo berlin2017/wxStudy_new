@@ -148,7 +148,7 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
-      url: 'https://weixin.ywkedu.com/App/search_teacher',
+      url: 'https://weixin.ywkedu.com/index.php/App/search_teacher',
       data: {
         'name': e.detail.value
       },

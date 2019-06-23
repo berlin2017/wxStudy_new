@@ -37,7 +37,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       method: 'POST',
-      url: 'https://weixin.ywkedu.com/App/teacher_account',
+      url: 'https://weixin.ywkedu.com/index.php/App/teacher_account',
       data: {
         'openId': app.globalData.myUser.openId,
       },
@@ -165,7 +165,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       method: 'POST',
-      url: 'https://weixin.ywkedu.com/App/teacher_tixian',
+      url: 'https://weixin.ywkedu.com/index.php/App/teacher_tixian',
       data: {
         'openId': app.globalData.myUser.openId,
         money:e.detail.value.money,

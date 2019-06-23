@@ -82,7 +82,7 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
-      url: 'https://weixin.ywkedu.com/App/teacher_check',
+      url: 'https://weixin.ywkedu.com/index.php/App/teacher_check',
       data: {
         openId: app.globalData.myUser.openId
       },

@@ -193,7 +193,7 @@ Page({
       stu_id = that.data.toId;
     }
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/chat',
+      url: 'https://weixin.ywkedu.com/index.php/App/chat',
       data: {
         student_openid: stu_id,
         teacher_openid: tea_id,

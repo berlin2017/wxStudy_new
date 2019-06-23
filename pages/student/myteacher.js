@@ -58,7 +58,7 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
-      url: 'https://weixin.ywkedu.com/App/search_teacher',
+      url: 'https://weixin.ywkedu.com/index.php/App/search_teacher',
       data: {
         'name': e.detail.value
       },
@@ -101,7 +101,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/teacher_list',
+      url: 'https://weixin.ywkedu.com/index.php/App/teacher_list',
       data: {
         'openId': app.globalData.myUser.openId
       },

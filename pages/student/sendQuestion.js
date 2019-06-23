@@ -81,7 +81,7 @@ Page({
     var that = this;
     wx.request({
       method: 'GET',
-      url: 'https://weixin.ywkedu.com/App/student_my',
+      url: 'https://weixin.ywkedu.com/index.php/App/student_my',
       data: {
         'openId': app.globalData.myUser.openId,
         'id': app.globalData.myUser.uid,
@@ -110,7 +110,7 @@ Page({
     })
     wx.request({
       method: 'POST',
-      url: 'https://weixin.ywkedu.com/App/subject',
+      url: 'https://weixin.ywkedu.com/index.php/App/subject',
       success: function (data) {
         wx.hideLoading();
         console.log(data);
@@ -135,7 +135,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/grade',
+      url: 'https://weixin.ywkedu.com/index.php/App/grade',
       success: function (data) {
         wx.hideLoading();
         console.log(data);
@@ -294,7 +294,7 @@ Page({
       params.state = 2;
     }
     wx.uploadFile({
-      url: 'https://weixin.ywkedu.com/App/student_indent',
+      url: 'https://weixin.ywkedu.com/index.php/App/student_indent',
       filePath: that.data.image,
       name: 'pic',
       formData: params,

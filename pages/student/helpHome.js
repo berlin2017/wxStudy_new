@@ -24,7 +24,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/help',
+      url: 'https://weixin.ywkedu.com/index.php/App/help',
       method:'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'

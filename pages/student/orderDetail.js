@@ -41,7 +41,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/student_indentXQ',
+      url: 'https://weixin.ywkedu.com/index.php/App/student_indentXQ',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -81,7 +81,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/premium',
+      url: 'https://weixin.ywkedu.com/index.php/App/premium',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -108,7 +108,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/delete_indent',
+      url: 'https://weixin.ywkedu.com/index.php/App/delete_indent',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -148,7 +148,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/delete_indent',
+      url: 'https://weixin.ywkedu.com/index.php/App/delete_indent',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -294,7 +294,7 @@ Page({
     })
     var teacherid = that.data.order.teachers[that.data.currentIndex].openid;
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/confirm_teacher',
+      url: 'https://weixin.ywkedu.com/index.php/App/confirm_teacher',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -410,7 +410,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/update_premium',
+      url: 'https://weixin.ywkedu.com/index.php/App/update_premium',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'

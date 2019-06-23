@@ -28,7 +28,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/slide',
+      url: 'https://weixin.ywkedu.com/index.php/App/slide',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -110,7 +110,7 @@ Page({
     var that = this;
     wx.request({
       method: 'GET',
-      url: 'https://weixin.ywkedu.com/App/student_info',
+      url: 'https://weixin.ywkedu.com/index.php/App/student_info',
       data: {
         'openId': app.globalData.myUser.openId,
         'id': app.globalData.myUser.uid,

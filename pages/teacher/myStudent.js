@@ -72,7 +72,7 @@ Page({
         mask: true,
       })
       wx.request({
-        url: 'https://weixin.ywkedu.com/App/student_list',
+        url: 'https://weixin.ywkedu.com/index.php/App/student_list',
         method: 'POST',
         header: {
           'content-type': 'application/x-www-form-urlencoded'

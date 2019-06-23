@@ -63,7 +63,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       method: 'POST',
-      url: 'https://weixin.ywkedu.com/App/code',
+      url: 'https://weixin.ywkedu.com/index.php/App/code',
       data: {
         'code': info.code,
         'encryptedData': app.globalData.res.encryptedData,

@@ -63,7 +63,7 @@ Page({
     var that = this;
     wx.request({
       method: 'GET',
-      url: 'https://weixin.ywkedu.com/App/student_info',
+      url: 'https://weixin.ywkedu.com/index.php/App/student_info',
       data: {
         'openId': app.globalData.myUser.openId,
         'id': app.globalData.myUser.uid,
@@ -308,7 +308,7 @@ Page({
     params.id = app.globalData.myUser.uid;
     if (that.data.selectImage){
       wx.uploadFile({
-        url: 'https://weixin.ywkedu.com/App/add_stuInfo',
+        url: 'https://weixin.ywkedu.com/index.php/App/add_stuInfo',
         filePath: that.data.selectImage,
         name: 'pic',
         formData:params,
@@ -346,7 +346,7 @@ Page({
         header: {
           'content-type': 'application/x-www-form-urlencoded'
         },
-        url: 'https://weixin.ywkedu.com/App/add_stuInfo',
+        url: 'https://weixin.ywkedu.com/index.php/App/add_stuInfo',
         data: params,
         success: function (res) {
           res = res.data;

@@ -47,7 +47,7 @@ Page({
     var that = this;
     wx.request({
       method:'GET',
-      url: 'https://weixin.ywkedu.com/App/student_my',
+      url: 'https://weixin.ywkedu.com/index.php/App/student_my',
       data: {
         'openId': app.globalData.myUser.openId,
         'id': app.globalData.myUser.uid,
@@ -73,7 +73,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/userInfo',
+      url: 'https://weixin.ywkedu.com/index.php/App/userInfo',
       data: {
         'openid': app.globalData.myUser.openId
       },
@@ -187,7 +187,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       method:'POST',
-      url: 'https://weixin.ywkedu.com/App/student_sign',
+      url: 'https://weixin.ywkedu.com/index.php/App/student_sign',
       data: {
         'openId': app.globalData.myUser.openId,
         'sum':num

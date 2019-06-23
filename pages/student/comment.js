@@ -42,7 +42,7 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
-      url: 'https://weixin.ywkedu.com/App/pingjia_info',
+      url: 'https://weixin.ywkedu.com/index.php/App/pingjia_info',
       data: {
         'teacher_openid': that.data.id,
         'student_openid':app.globalData.myUser.openId,
@@ -69,7 +69,7 @@ confirm:function(e){
     header: {
       'content-type': 'application/x-www-form-urlencoded'
     },
-    url: 'https://weixin.ywkedu.com/App/add_pingjia',
+    url: 'https://weixin.ywkedu.com/index.php/App/add_pingjia',
     data: {
       'teacher_openid': that.data.id,
       'student_openid': app.globalData.myUser.openId,

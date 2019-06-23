@@ -77,7 +77,7 @@ Page({
         'openId': app.globalData.myUser.openId,
         'id': app.globalData.myUser.uid,
       },
-      url: 'https://weixin.ywkedu.com/App/teacher_infomation',
+      url: 'https://weixin.ywkedu.com/index.php/App/teacher_infomation',
       success: function (data) {
         wx.hideLoading();
         console.log(data);
@@ -108,7 +108,7 @@ Page({
     })
     wx.request({
       method: 'POST',
-      url: 'https://weixin.ywkedu.com/App/subject',
+      url: 'https://weixin.ywkedu.com/index.php/App/subject',
       success: function (data) {
         wx.hideLoading();
         console.log(data);
@@ -132,7 +132,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/grade',
+      url: 'https://weixin.ywkedu.com/index.php/App/grade',
       success: function (data) {
         wx.hideLoading();
         console.log(data);
@@ -588,9 +588,9 @@ Page({
     // this.sendMsg(form_data);
     var that = this;
     var params = {};
-    var request_url = 'https://weixin.ywkedu.com/App/register';
+    var request_url = 'https://weixin.ywkedu.com/index.php/App/register';
     if (that.data.regist_type == '1'){
-      request_url = 'https://weixin.ywkedu.com/App/update_teacher_info';
+      request_url = 'https://weixin.ywkedu.com/index.php/App/update_teacher_info';
       params.id = that.data.userInfo.info.id;
       if (!that.data.headerUrl) {
         params.pic = that.data.userInfo.info.pic;
@@ -706,7 +706,7 @@ Page({
       mask: true,
     })
     wx.uploadFile({
-      url: 'https://weixin.ywkedu.com/App/register_pic',
+      url: 'https://weixin.ywkedu.com/index.php/App/register_pic',
       filePath: that.data.headerPic,
       name: 'pic',
       success:function(e){
@@ -747,7 +747,7 @@ Page({
       mask: true,
     })
     wx.uploadFile({
-      url: 'https://weixin.ywkedu.com/App/register_pic',
+      url: 'https://weixin.ywkedu.com/index.php/App/register_pic',
       filePath: that.data.idPic,
       name: 'pic',
       success: function (e) {
@@ -785,7 +785,7 @@ Page({
       mask: true,
     })
     wx.uploadFile({
-      url: 'https://weixin.ywkedu.com/App/register_pic',
+      url: 'https://weixin.ywkedu.com/index.php/App/register_pic',
       filePath: that.data.jobPic,
       name: 'pic',
       success: function (e) {

@@ -61,7 +61,7 @@ Page({
       header:{
         'content-type': 'application/x-www-form-urlencoded'
       },
-      url: 'https://weixin.ywkedu.com/App/teacher_my',
+      url: 'https://weixin.ywkedu.com/index.php/App/teacher_my',
       data: {
         'openId': app.globalData.myUser.openId,
         'id': app.globalData.myUser.uid,

@@ -94,7 +94,7 @@ Page({
       // header: {
       //   'content-type': 'application/x-www-form-urlencoded'
       // },
-      url: 'https://weixin.ywkedu.com/App/teacher_info',
+      url: 'https://weixin.ywkedu.com/index.php/App/teacher_info',
       data: {
         'openId': that.data.id
       },
@@ -154,7 +154,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/pingjia',
+      url: 'https://weixin.ywkedu.com/index.php/App/pingjia',
       data:{
         'openId':that.data.id,
       },

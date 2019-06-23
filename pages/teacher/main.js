@@ -40,7 +40,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/teacher_home',
+      url: 'https://weixin.ywkedu.com/index.php/App/teacher_home',
       data:{
         openId:app.globalData.myUser.openId
       },
@@ -137,7 +137,7 @@ Page({
     })
 
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/up_indent',
+      url: 'https://weixin.ywkedu.com/index.php/App/up_indent',
       method:'POST',
       header:{
         'content-type': 'application/x-www-form-urlencoded'

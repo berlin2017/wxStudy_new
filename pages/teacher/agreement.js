@@ -28,7 +28,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/agreement',
+      url: 'https://weixin.ywkedu.com/index.php/App/agreement',
       success:function(res){
         wx.hideLoading();
         that.setData({

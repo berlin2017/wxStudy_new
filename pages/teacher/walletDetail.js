@@ -87,7 +87,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       method: 'POST',
-      url: 'https://weixin.ywkedu.com/App/teacher_account_detail',
+      url: 'https://weixin.ywkedu.com/index.php/App/teacher_account_detail',
       data: {
         'openId': app.globalData.myUser.openId,
       },

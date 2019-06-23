@@ -78,16 +78,16 @@ Page({
     var request_url = '';
     switch(that.data.order_type){
       case '0':
-        request_url = 'https://weixin.ywkedu.com/App/student_weijie';
+        request_url = 'https://weixin.ywkedu.com/index.php/App/student_weijie';
         break;
       case '1':
-        request_url = 'https://weixin.ywkedu.com/App/student_yijie';
+        request_url = 'https://weixin.ywkedu.com/index.php/App/student_yijie';
         break;
       case '2':
-        request_url = 'https://weixin.ywkedu.com/App/student_start';
+        request_url = 'https://weixin.ywkedu.com/index.php/App/student_start';
         break;
       case '3':
-        request_url = 'https://weixin.ywkedu.com/App/student_daiping';
+        request_url = 'https://weixin.ywkedu.com/index.php/App/student_daiping';
         break;
     }
     wx.showLoading({

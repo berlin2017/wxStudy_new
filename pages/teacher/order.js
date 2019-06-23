@@ -51,19 +51,19 @@ Page({
     });
     
     var title ='订单列表';
-    var requestUrl = 'https://weixin.ywkedu.com/App/teacher_indent_my'
+    var requestUrl = 'https://weixin.ywkedu.com/index.php/App/teacher_indent_my'
     switch (options.state){
       case '1':
         title = '已抢单';
-        requestUrl = 'https://weixin.ywkedu.com/App/teacher_yiqiang';
+        requestUrl = 'https://weixin.ywkedu.com/index.php/App/teacher_yiqiang';
       break;
       case '2':
         title = '上课中';
-        requestUrl = 'https://weixin.ywkedu.com/App/teacher_shangke';
+        requestUrl = 'https://weixin.ywkedu.com/index.php/App/teacher_shangke';
         break;
       case '3':
         title = '待评价';
-        requestUrl = 'https://weixin.ywkedu.com/App/teacher_yiping';
+        requestUrl = 'https://weixin.ywkedu.com/index.php/App/teacher_yiping';
         break;
     }
     this.setData({

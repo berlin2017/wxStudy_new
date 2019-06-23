@@ -46,7 +46,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/student_indentXQ',
+      url: 'https://weixin.ywkedu.com/index.php/App/student_indentXQ',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -100,7 +100,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/class_is_over',
+      url: 'https://weixin.ywkedu.com/index.php/App/class_is_over',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -125,7 +125,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/pick_no',
+      url: 'https://weixin.ywkedu.com/index.php/App/pick_no',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -288,7 +288,7 @@ Page({
     })
 
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/pick_yes',
+      url: 'https://weixin.ywkedu.com/index.php/App/pick_yes',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -333,7 +333,7 @@ Page({
     })
 
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/up_indent',
+      url: 'https://weixin.ywkedu.com/index.php/App/up_indent',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -442,7 +442,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'https://weixin.ywkedu.com/App/update_premium',
+      url: 'https://weixin.ywkedu.com/index.php/App/update_premium',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
