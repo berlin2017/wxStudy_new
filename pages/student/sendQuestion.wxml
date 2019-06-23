@@ -36,6 +36,15 @@
       </picker>
      </view>
 
+     
+      <view class='form_item'>
+      <picker value='{{currentTeacher}}' range='{{teacher_types}}' bindchange='changeTeacher' name='teacher_pick' range-key='name' >
+      <text class='form_name'>级别:</text>
+      <image src='../Resources/ic_down.png' style='width:20px;height:20px;margin-right: 10px;float: right; margin-top: 10px;'></image>
+      <text class='form_value'>{{teacher_types[currentTeacher].name}}</text>
+      </picker>
+     </view>
+
       <view class='form_item'>
         <text class='form_name'>价格:</text>
         <input class='form_input' value='{{value}}' type='number' name='price_input'></input>

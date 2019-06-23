@@ -7,44 +7,58 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title:'发布辅导需求',
-    title_bg:'#7647a0',
-    image:'',
-    chosed:false,
+    title: '发布辅导需求',
+    title_bg: '#7647a0',
+    image: '',
+    chosed: false,
     // grades: ['一年级', '二年级', '三年级', '四年级', '五年级', '初一', '初二', '初三', '高一', '高二', '高三', '大一', '大二', '大三', '大四'],
     grades: [],
-    currentGrade:0,
+    currentGrade: 0,
     subjects: [],
-    currentSubject:0,
-    allSubjects:[],
-    userInfo:null,
-    teacher:{},
-    value:0,
+    currentSubject: 0,
+    allSubjects: [],
+    userInfo: null,
+    teacher: {},
+    value: 0,
+    teacher_types: [{
+        name: "特级",
+        value: 3
+      },
+      {
+        name: "一级",
+        value: 2
+      },
+      {
+        name: "金牌",
+        value: 1
+      }
+    ],
+    currentTeacher:2,
   },
 
-  changeGrade:function(e){
+  changeGrade: function(e) {
     this.setData({
-      currentGrade:e.detail.value,
-      currentSubject:0
+      currentGrade: e.detail.value,
+      currentSubject: 0
     });
-    if (!this.data.allSubjects || this.data.allSubjects.length<=0){
+    if (!this.data.allSubjects || this.data.allSubjects.length <= 0) {
       return;
     }
     var array = [];
-    for (var index in this.data.allSubjects){
-     
+    for (var index in this.data.allSubjects) {
+
       var item = this.data.allSubjects[index];
-      if (item.nianji_name === this.data.grades[this.data.currentGrade].name){
+      if (item.nianji_name === this.data.grades[this.data.currentGrade].name) {
         array.push(item);
       }
     }
     this.setData({
-      subjects:array,
+      subjects: array,
       value: array[this.data.currentSubject].min_money
     });
   },
 
-  changeSubject: function (e) {
+  changeSubject: function(e) {
     var that = this;
     this.setData({
       currentSubject: e.detail.value,
@@ -52,11 +66,18 @@ Page({
     });
   },
 
+  changeTeacher:function(e){
+    var that = this;
+    this.setData({
+      currentTeacher: e.detail.value
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    if(options.openid){
+  onLoad: function(options) {
+    if (options.openid) {
       var that = this;
       that.data.teacher.realname = options.name;
       that.data.teacher.openid = options.openid;
@@ -69,11 +90,11 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
     this.requestInfo();
   },
 
-  requestInfo: function () {
+  requestInfo: function() {
     wx.showLoading({
       title: '',
       mask: true,
@@ -86,7 +107,7 @@ Page({
         'openId': app.globalData.myUser.openId,
         'id': app.globalData.myUser.uid,
       },
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         that.setData({
           userInfo: res.data
@@ -94,14 +115,14 @@ Page({
         wx.hideLoading();
         that.requestSubjects();
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log(res);
       },
     })
   },
 
 
-  requestSubjects: function () {
+  requestSubjects: function() {
     console.log('----------科目列表---------');
     var that = this;
     wx.showLoading({
@@ -111,23 +132,23 @@ Page({
     wx.request({
       method: 'POST',
       url: 'https://weixin.ywkedu.com/index.php/App/subject',
-      success: function (data) {
+      success: function(data) {
         wx.hideLoading();
         console.log(data);
         that.setData({
           allSubjects: data.data
         });
-       
+
         that.requestGrades();
       },
-      fail: function (data) {
+      fail: function(data) {
         wx.hideLoading();
         console.log(data);
       },
     })
   },
 
-  requestGrades:function(){
+  requestGrades: function() {
     console.log('----------年级列表---------');
     var that = this;
     wx.showLoading({
@@ -136,7 +157,7 @@ Page({
     })
     wx.request({
       url: 'https://weixin.ywkedu.com/index.php/App/grade',
-      success: function (data) {
+      success: function(data) {
         wx.hideLoading();
         console.log(data);
         that.setData({
@@ -144,9 +165,9 @@ Page({
         });
 
         for (var index in data.data) {
-          if (data.data[index].name == that.data.userInfo.userInfo.nianji_name){
+          if (data.data[index].name == that.data.userInfo.userInfo.nianji_name) {
             that.setData({
-              currentGrade:index,
+              currentGrade: index,
             });
           }
         }
@@ -155,7 +176,7 @@ Page({
         var array = [];
         for (var index in that.data.allSubjects) {
           var item = that.data.allSubjects[index];
-          
+
           if (item.nianji_id === that.data.grades[that.data.currentGrade].id) {
             array.push(item);
           }
@@ -165,7 +186,7 @@ Page({
           value: array[0].min_money
         });
       },
-      fail: function (data) {
+      fail: function(data) {
         wx.hideLoading();
         console.log(data);
       },
@@ -175,76 +196,76 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     let pages = getCurrentPages();
     let currPage = pages[pages.length - 1];
-      this.setData({//将携带的参数赋值
-        teacher: currPage.data.teacher,
-      });
+    this.setData({ //将携带的参数赋值
+      teacher: currPage.data.teacher,
+    });
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-  
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-  
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function() {
+
   },
 
-  back:function(){
+  back: function() {
     wx.navigateBack({
-      
+
     })
   },
 
-  choseImage:function(){
+  choseImage: function() {
     var that = this;
     wx.chooseImage({
-      count:1,
+      count: 1,
       success: function(res) {
         var tempFilePaths = res.tempFilePaths;
         that.setData({
-          image:tempFilePaths[0],
-          chosed:true
+          image: tempFilePaths[0],
+          chosed: true
         });
       },
     })
   },
 
-  chooseImage: function (e) {
+  chooseImage: function(e) {
     var that = this;
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
+      success: function(res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths;
         that.setData({
@@ -254,22 +275,22 @@ Page({
       }
     })
   },
-  
-  send:function(e){
-    var that =this;
-    if (!this.data.image){
+
+  send: function(e) {
+    var that = this;
+    if (!this.data.image) {
       wx.showToast({
         title: '请选择题目照片',
       })
       return;
-   }
+    }
 
-   
+
     var price = e.detail.value['price_input'];
     var remark = e.detail.value['remark_input'];
     console.log(price);
     console.log(remark);
-    if (parseInt(price) < parseInt(that.data.subjects[that.data.currentSubject].min_money)){
+    if (parseInt(price) < parseInt(that.data.subjects[that.data.currentSubject].min_money)) {
       wx.showToast({
         title: '起步价 ' + that.data.subjects[that.data.currentSubject].min_money,
       })
@@ -287,8 +308,9 @@ Page({
       'beizhu': remark,
       'openId': app.globalData.myUser.openId,
       'form_id': e.detail.formId,
+      'jibie':that.data.teacher_types[that.data.currentTeacher].value
     };
-    if (that.data.teacher && that.data.teacher != [] && that.data.teacher.openid){
+    if (that.data.teacher && that.data.teacher != [] && that.data.teacher.openid) {
       params.teacher_openid = that.data.teacher.openid;
       params.directional = 1;
       params.state = 2;
@@ -298,17 +320,17 @@ Page({
       filePath: that.data.image,
       name: 'pic',
       formData: params,
-      success: function (res) {
+      success: function(res) {
         res = JSON.parse(res.data);
         console.log(res);
         wx.hideLoading();
         if (res.msg != 'ok' && res.msg != '0') {
-         
+
           wx.showToast({
             title: res.data,
           })
           if (res.msg == '2') {
-            setTimeout(function () {
+            setTimeout(function() {
               wx.navigateTo({
                 url: 'walletCZ',
               })
@@ -319,7 +341,7 @@ Page({
         wx.showToast({
           title: '发布成功',
         })
-        setTimeout(function () {
+        setTimeout(function() {
           wx.switchTab({
             url: 'allOrder',
           })
@@ -328,7 +350,7 @@ Page({
     })
   },
 
-  toSearch:function(){
+  toSearch: function() {
     wx.navigateTo({
       url: 'search',
     })
