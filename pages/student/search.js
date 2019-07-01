@@ -9,7 +9,35 @@ Page({
     title_bg: '#7647a0',
     teachers: [],
     inputShowed: false,
-    inputVal: ""
+    inputVal: "",
+
+
+    teacher_types: [{
+      name: "全部",
+      value: 0
+    },
+    {
+      name: "特级",
+      value: 3
+    },
+    {
+      name: "一级",
+      value: 2
+    },
+    {
+      name: "金牌",
+      value: 1
+    }
+    ],
+    currentTeacher: 0,
+  },
+
+
+  changeTeacher: function (e) {
+    var that = this;
+    this.setData({
+      currentTeacher: e.detail.value
+    });
   },
 
   showInput: function () {
@@ -143,15 +171,20 @@ Page({
       title: '',
       mask: true,
     })
+    var params = {
+      'name': e.detail.value
+    }
+    if (that.data.currentTeacher != 0) {
+      params.jibie = that.data.teacher_types[that.data.currentTeacher].value
+    }
+
     wx.request({
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       url: 'https://weixin.ywkedu.com/index.php/App/search_teacher',
-      data: {
-        'name': e.detail.value
-      },
+      data: params,
       success: function (res) {
         that.setData({
           teachers: res.data

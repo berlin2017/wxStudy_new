@@ -1,6 +1,27 @@
 /* pages/student/search.wxss */
 @import '../common/title.wxss';
 
+.top_bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weui-search-bar {
+  flex: 1;
+}
+
+.weui-search-bar {
+  position: relative;
+  padding: 8px 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #EFEFF4;
+  border-top: 1rpx solid #D7D6DC;
+}
+
 .item_layout {
   width: 100%;
   height: 160rpx;

@@ -56,7 +56,7 @@
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "腾讯视频云",
-    "navigationBarTextStyle": "#fff",
+    "navigationBarTextStyle": "white",
     "navigationStyle": "custom"
   },
   "tabBar": {
@@ -87,5 +87,6 @@
       }
     ],
     "selectedColor": "#8E388E"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
