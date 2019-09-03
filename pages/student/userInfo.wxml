@@ -1,5 +1,5 @@
 <!--pages/student/userInfo.wxml-->
-<view class='main_container' style='margin-bottom:40px;'>
+<view class='main_container' style='height:100%;'>
 
   <view class='content'>
 

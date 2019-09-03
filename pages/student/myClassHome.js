@@ -58,10 +58,13 @@ Page({
   },
 
   /**
-   * 用户点击右上角分享
-   */
+    * 用户点击右上角分享
+    */
   onShareAppMessage: function () {
-  
+    return {
+      title: '分享',
+      path: '/pages/loading/loading'
+    }
   },
   
   back: function () {

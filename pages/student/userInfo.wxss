@@ -46,13 +46,12 @@
 
 .bottom_layout{
   width: 100%;
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
   height: 40px;
   background: #268746;
   color: white;
+  margin-top: 40px;
   line-height: 40px;
   text-align: center;
-  z-index: 1000000;
+  position: absolute;
+  bottom: 0px;
 }
