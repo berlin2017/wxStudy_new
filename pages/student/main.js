@@ -9,13 +9,14 @@ Page({
   data: {
     images: [
     ],
+    isLogin:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
@@ -53,7 +54,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.setData({
+      isLogin: app.globalData.isLogin
+    })
   },
 
   /**
@@ -95,9 +98,13 @@ Page({
   },
 
   toSend:function(){
-    
-    this.requestInfo();
-
+    if(this.data.isLogin){
+      this.requestInfo();
+    }else{
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }
   },
   toTest:function(){
     // wx.navigateTo({

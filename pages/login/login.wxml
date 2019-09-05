@@ -1,0 +1,29 @@
+<!--index.wxml-->
+
+<view class='login_container'>
+
+  <view class="app">
+    <include src="../common/title.wxml" />
+    <image src="../Resources/album-xxy.png" class="icon"></image>
+
+    <text class="app_name">名师到家</text>
+    <text class="app_company">南京都邦网络科技有限公司</text>
+
+  </view>
+
+  <view class="info">
+
+    <text class="app_name">该程序将获取以下授权:</text>
+
+    <text class="app_company"> · 获取您的公开信息（昵称、头像等）</text>
+
+  </view>
+
+  <view class="btn">
+
+    <button class="cancel" bindtap="cancel">拒绝</button>
+    <button class="confirm" bindgetuserinfo="onGetUserinfo" open-type="getUserInfo">允许</button>
+
+  </view>
+
+</view>

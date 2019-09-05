@@ -1,86 +1,91 @@
 <!--pages/teacher/user.wxml-->
-<import src="tabbar.wxml"/>
-<template is="tabBar" data="{{tabBar:bindData.tabBar}}" wx:if='{{enable}}'/>
+<import src="tabbar.wxml" />
+<template is="tabBar" data="{{tabBar:bindData.tabBar}}" wx:if='{{enable}}' />
 
-<view class='main_container' style='margin-bottom:106rpx;'> 
+<view class='main_container' style='margin-bottom:106rpx;'>
 
-  <view class='top_header' bindtap='toInfo'  >
-  
-    <image class='header_image' mode='scaleToFill' src='{{userInfo.userInfo.pic!="null" ? userInfo.userInfo.pic : wxUser.avatarUrl}}'></image>
+  <view class='top_header' bindtap='toInfo'>
 
-     <image class='header_arrow' src='../Resources/right_arrow.png'></image>
+    <view style="display:flex;flex-direction:row;">
 
-    <view class='header_info_layout'>
-    
-       <view class='name_text'>{{userInfo.userInfo.realname ? userInfo.userInfo.realname : wxUser.nickName}}</view>
+      <image class='header_image' mode='scaleToFill' src='{{userInfo.userInfo.pic!="null" ? userInfo.userInfo.pic : wxUser.avatarUrl?wxUser.avatarUrl:photo}}'></image>
 
-       <view class='mobile_text'>{{userInfo.userInfo.tel}}</view>
+        <view class='header_info_layout'>
 
-      <view wx:if='{{enable == 1||enable == 2}}'>
-       <view class='grade_text' wx:if='{{enable == 1}}'>审核中</view>
-        <view class='grade_text' wx:if='{{enable == 2}}'>冻结中</view>
-       <!-- <view class='grade_text'>{{userInfo.className}}</view> -->
+        <view class='name_text'>{{userInfo.userInfo.realname ? userInfo.userInfo.realname : wxUser.nickName}}</view>
 
+        <view class='mobile_text'>{{userInfo.userInfo.tel}}</view>
+
+        <view wx:if='{{enable == 1||enable == 2}}'>
+          <view class='grade_text' wx:if='{{enable == 1}}'>审核中</view>
+          <view class='grade_text' wx:if='{{enable == 2}}'>冻结中</view>
+          <!-- <view class='grade_text'>{{userInfo.className}}</view> -->
+
+        </view>
       </view>
+
+      <button bindtap="toLogin" wx:if='{{!isLogin}}' class="loginBtn">点击登陆</button>
+
+      <image class='header_arrow' src='../Resources/right_arrow.png' wx:if='{{isLogin}}' ></image>
 
     </view>
 
-     <view class='user_money_layout'  catchtap='toWallet'>
-    
+    <view class='user_money_layout' catchtap='toWallet'>
+
       <image src='../Resources/ic_user_yue.png' mode='scaleToFill' class='user_money_image'></image>
 
       <view class='user_money_name'>账户余额</view>
-    
+
       <image class='header_arrow2' src='../Resources/right_arrow.png'></image>
 
-       <view class='user_money_number'>
+      <view class='user_money_number'>
         <text style='display:block;line-height:60px;float:left;'>{{userInfo.account ? userInfo.account : 0.0}}</text>
         <text style='font-size:13px;display:block;line-height:60px;float:left;margin-left:5px;'>优豆</text>
       </view>
 
-    </view> 
-  
+    </view>
+
 
   </view>
 
-   <view class='center_layout'>
-  
+  <view class='center_layout'>
+
     <view class='option1_layout' style='height:{{option_height}}px;width:{{option_height}}px;' bindtap='toWrong'>
-    
+
       <view class='option1_value' style='line-height:{{option_height-80}}px;'>{{userInfo.indent.yiqiangSum}}</view>
 
-       <view class='option1_name'>已抢单</view>
-    
+      <view class='option1_name'>已抢单</view>
+
     </view>
 
-     <view class='option2_layout' style='height:{{option_height}}px;width:{{option_height}}px;' bindtap='toClass'>
-    
+    <view class='option2_layout' style='height:{{option_height}}px;width:{{option_height}}px;' bindtap='toClass'>
+
       <view class='option1_value' style='line-height:{{option_height-80}}px;'>{{userInfo.indent.shangkeSum}}</view>
 
       <view class='option1_name'>上课中</view>
-    
+
     </view>
 
-     <view class='option3_layout' style='height:{{option_height}}px;width:{{option_height}}px;' bindtap='toOrder'>
-    
+    <view class='option3_layout' style='height:{{option_height}}px;width:{{option_height}}px;' bindtap='toOrder'>
+
       <view class='option1_value' style='line-height:{{option_height-80}}px;'>{{userInfo.indent.daipingSum}}</view>
 
-       <view class='option1_name'>已评价</view>
-    
+      <view class='option1_name'>已评价</view>
+
     </view>
 
-     <view class='option4_layout' style='height:{{option_height}}px;width:{{option_height}}px;' bindtap='toRelease'>
-    
+    <view class='option4_layout' style='height:{{option_height}}px;width:{{option_height}}px;' bindtap='toRelease'>
+
       <view class='option1_value' style='line-height:{{option_height-80}}px;'>{{userInfo.indent.num ? userInfo.indent.num :0}}</view>
 
       <view class='option1_name'>今日收入</view>
-    
-    </view>
-  
-  </view> 
 
-  <view class='user_help_layout'  bindtap='toHelp'>
-  
+    </view>
+
+  </view>
+
+  <view class='user_help_layout' bindtap='toHelp'>
+
     <image src='../Resources/ic_user_yue.png' mode='scaleToFill' class='user_help_image'></image>
 
     <view class='user_help_text'>帮助中心</view>
@@ -92,5 +97,3 @@
 
 
 </view>
-
-

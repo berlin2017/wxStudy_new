@@ -13,6 +13,7 @@ Page({
     inputVal: "",
     orders:[],
     imageWidth: 0,
+    isLogin:false
   },
 
   showInput: function () {
@@ -52,7 +53,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.requestList();
+
   },
 
   requestList: function () {
@@ -99,7 +100,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.requestList();
+    this.setData({
+      isLogin: app.globalData.isLogin
+    })
+    if (this.data.isLogin) {
+      this.requestList();
+    }
   },
 
   /**

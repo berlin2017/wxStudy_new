@@ -14,21 +14,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
- 
+      
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+ 
   },
 
   /**
   * 生命周期函数--监听页面显示
   */
   onShow: function () {
-    
+    var that = this
+    wx.getUserInfo({
+      success: res => {
+        // 可以将 res 发送给后台解码出 unionId
+        app.globalData.userInfo = res.userInfo
+        app.globalData.res = res
+        that.wxLogin();
+      },
+      fail:function(){
+        this.toMain()
+      }
+    })
+     
   },
 
   onGetUserinfo: function () {

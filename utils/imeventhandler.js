@@ -857,8 +857,64 @@ export default class IMEventHandler {
     app.globalData.isLogin = true
     wx.hideLoading()
     if (app.globalData.userType == 1){
-      wx.reLaunch({
-        url: '../teacher/main',
+      wx.showLoading({
+        title: '',
+        mask: true,
+      })
+      wx.request({
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        url: 'https://weixin.ywkedu.com/index.php/App/teacher_check',
+        data: {
+          openId: app.globalData.myUser.openId
+        },
+        success: function (res) {
+          wx.hideLoading();
+          console.log(res);
+          if (res.data.msg == 1) {
+            // wx.navigateTo({
+            //   url: '../teacher/main',
+            // })
+            if (app.globalData.isLogin) {
+              wx.reLaunch({
+                url: '../teacher/main',
+              })
+            }
+          } else if (res.data.msg == 0) {
+            wx.showToast({
+              title: '账户审核中...',
+            })
+            setTimeout(function () {
+              wx.navigateTo({
+                url: '../teacher/user?enable=1',
+              })
+            }, 1000);
+
+          } else if (res.data.msg == 2) {
+            wx.showToast({
+              title: '账户冻结中…',
+            })
+            setTimeout(function () {
+              wx.navigateTo({
+                url: '../teacher/user?enable=2',
+              })
+            }, 1000);
+
+          } else {
+            wx.navigateTo({
+              url: '../teacher/regist',
+            })
+
+          }
+        },
+        fail: function (res) {
+          wx.hideLoading();
+          wx.showToast({
+            title: '请求失败',
+          })
+        },
       })
     }else{
       wx.switchTab({
@@ -866,6 +922,8 @@ export default class IMEventHandler {
       })
     }
   }
+
+
   onUsers(friends) {
     /** key可能丢失，使用时检查下
       [

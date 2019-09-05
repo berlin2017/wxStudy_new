@@ -12,13 +12,15 @@ Page({
     option_height: 0,
     wxUser:{},
     enable:0,
+    isLogin:false,
+    photo: "../Resources/default-icon.png"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.enable != 1 && options.enable != 2){
+    if (options.enable != 1 && options.enable != 2 && options.enable != 3){
       this.setData({
         enable: options.enable
       })
@@ -91,7 +93,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.requestInfo();
+    this.setData({
+      isLogin:app.globalData.isLogin
+    })
+    if(this.data.isLogin){
+      this.requestInfo();
+    }
   },
 
   /**
@@ -104,7 +111,7 @@ Page({
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function () { 
 
   },
 
@@ -112,6 +119,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    if (!this.data.isLogin) {
+      wx.stopPullDownRefresh();
+      this.toLogin()
+      return
+    }
     this.requestInfo();
     wx.stopPullDownRefresh();
   },
@@ -139,30 +151,50 @@ Page({
     })
   },
   toInfo: function () {
+    if (!this.data.isLogin) {
+      this.toLogin()
+      return
+    }
     wx.navigateTo({
       url: 'regist?type=1',
     })
   },
 
   toWallet: function () {
+    if (!this.data.isLogin) {
+      this.toLogin()
+      return
+    }
     wx.navigateTo({
       url: 'userWallet',
     })
   },
 
   toWrong: function () {
+    if (!this.data.isLogin) {
+      this.toLogin()
+      return
+    }
     wx.navigateTo({
       url: 'order' + '?state=1',
     })
   },
 
   toClass: function () {
+    if (!this.data.isLogin) {
+      this.toLogin()
+      return
+    }
     wx.navigateTo({
       url: 'order' + '?state=2',
     })
   },
 
   toOrder: function () {
+    if (!this.data.isLogin) {
+      this.toLogin()
+      return
+    }
     wx.navigateTo({
       url: 'order' + '?state=3',
     })
@@ -180,6 +212,11 @@ Page({
     })
   },
 
-
+  toLogin:function(){
+    wx.navigateTo({
+      url: '../login/login',
+    })
+  }
+  
 })
 

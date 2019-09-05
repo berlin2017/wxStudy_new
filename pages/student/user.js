@@ -10,6 +10,8 @@ Page({
     },
     option_height:0,
     wxUser:{},
+    isLogin: false,
+    photo:"../Resources/default-icon.png"
   },
 
   /**
@@ -94,7 +96,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.requestInfo();
+    this.setData({
+      isLogin: app.globalData.isLogin && app.globalData.userInfo != null
+    })
+    if (this.data.isLogin) {
+      this.requestInfo();
+    }
   },
 
   /**
@@ -137,36 +144,60 @@ Page({
   },
 
   toInfo:function(){
+    if (!this.data.isLogin) {
+      this.toLogin()
+      return
+    }
    wx.navigateTo({
      url: 'userInfo',
    })
   },
 
   toWallet:function(){
+    if (!this.data.isLogin) {
+      this.toLogin()
+      return
+    }
     wx.navigateTo({
       url: 'userWallet',
     })
   },
 
   toWrong:function(){
+    if (!this.data.isLogin) {
+      this.toLogin()
+      return
+    }
     wx.navigateTo({
       url: 'myOrderHome'+'?order_type='+'0',
     })
   },
 
   toClass: function () {
+    if (!this.data.isLogin) {
+      this.toLogin()
+      return
+    }
     wx.navigateTo({
       url: 'myOrderHome' + '?order_type=' + '1',
     })
   },
 
   toOrder: function () {
+    if (!this.data.isLogin) {
+      this.toLogin()
+      return
+    }
     wx.navigateTo({
       url: 'myOrderHome' + '?order_type=' + '2',
     })
   },
 
   toRelease: function () {
+    if (!this.data.isLogin) {
+      this.toLogin()
+      return
+    }
     wx.navigateTo({
       url: 'myOrderHome' + '?order_type=' + '3',
     })
@@ -179,6 +210,10 @@ Page({
   },
 
   sign:function(){
+    if(!this.data.isLogin){ 
+      this.toLogin()
+      return
+    }
     wx.showLoading({
       title: '',
       mask: true,
@@ -217,4 +252,10 @@ Page({
       },
     })
   },
+
+  toLogin:function(){
+    wx.navigateTo({
+      url: '../login/login',
+    })
+  }
 })

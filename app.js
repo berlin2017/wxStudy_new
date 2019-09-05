@@ -34,7 +34,9 @@ App({
     userInfo: null,
     userType:2,
 
-    isLogin: false, // 当前是否是登录状态
+    isWXLogin: false, // 当前是否是登录状态
+
+    isLogin: false, // 当前im是否是登录状态
     currentChatTo: '', // 记录当前聊天对象account，用于标记聊天时禁止更新最近会话unread
     loginUser: {},//当前登录用户信息
     friends: [],//好友列表，

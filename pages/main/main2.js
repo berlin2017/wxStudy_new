@@ -17,65 +17,77 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
     return {
       title: '分享',
       path: '/pages/loading/loading'
     }
   },
 
-  toTeacherMain: function () {
+  toTeacherMain: function() {
     var that = this;
     app.globalData.userType = 1;
+
+    if (app.globalData.isLogin && app.globalData.userInfo != null) {
+      wx.navigateTo({
+        url: '../teacher/main',
+      })
+    } else if (app.globalData.userInfo == null) {
+      wx.reLaunch({
+        url: '../teacher/user?enable=3',
+      })
+      return
+    }
+
     wx.showLoading({
       title: '',
       mask: true,
@@ -89,25 +101,25 @@ Page({
       data: {
         openId: app.globalData.myUser.openId
       },
-      success: function (res) {
+      success: function(res) {
         wx.hideLoading();
         console.log(res);
         if (res.data.msg == 1) {
           // wx.navigateTo({
           //   url: '../teacher/main',
           // })
-          if (app.globalData.isLogin){
+          if (app.globalData.isLogin) {
             wx.reLaunch({
               url: '../teacher/main',
             })
-          }else{
+          } else {
             that.registerIM();
           }
         } else if (res.data.msg == 0) {
           wx.showToast({
             title: '账户审核中...',
           })
-          setTimeout(function () {
+          setTimeout(function() {
             wx.navigateTo({
               url: '../teacher/user?enable=1',
             })
@@ -117,7 +129,7 @@ Page({
           wx.showToast({
             title: '账户冻结中…',
           })
-          setTimeout(function () {
+          setTimeout(function() {
             wx.navigateTo({
               url: '../teacher/user?enable=2',
             })
@@ -130,7 +142,7 @@ Page({
 
         }
       },
-      fail: function (res) {
+      fail: function(res) {
         wx.hideLoading();
         wx.showToast({
           title: '请求失败',
@@ -139,27 +151,32 @@ Page({
     })
   },
 
-  toStudentMain: function () {
+  toStudentMain: function() {
     app.globalData.userType = 2;
-    if (app.globalData.isLogin) {
+
+    if (app.globalData.isLogin && app.globalData.userInfo != null) {
       wx.switchTab({
         url: '../student/main',
       })
-    } else {
-      this.registerIM();
+    } else if (app.globalData.userInfo == null) {
+      wx.switchTab({
+        url: '../student/main',
+      })
+      return
     }
+    this.registerIM();
 
   },
 
-  initIM:function(e){
+  initIM: function(e) {
     app.globalData.userType = e.currentTarget.dataset.type;
     this.registerIM();
   },
 
-  registerIM:function(){
+  registerIM: function() {
     wx.showLoading({
       title: '',
-      mask:true
+      mask: true
     })
     var CurTime = parseInt(new Date().getTime() / 1000);
     var Nonce = "4tgggergigwow323t23t";
@@ -181,20 +198,30 @@ Page({
         'name': app.globalData.myUser.nickName,
         'token': 'ah123456',
       },
-      success: function (e) {
+      success: function(e) {
         console.log(e);
-        if (e.data.code == 414 || e.data.code == 200){
+        if (e.data.code == 200) {
           new IMEventHandler({
             token: 'ah123456',
             account: app.globalData.myUser.openId
           })
-        }else{
+        } else if (e.data.code == 414) {
+          if (app.globalData.userType == 2) {
+            wx.switchTab({
+              url: '../student/main',
+            })
+          } else {
+            wx.reLaunch({
+              url: '../teacher/user?enable=3',
+            })
+          }
+        } else {
           wx.showToast({
             title: '请重试',
           })
         }
       },
-      fail: function (e) {
+      fail: function(e) {
         console.log(e);
       },
     })

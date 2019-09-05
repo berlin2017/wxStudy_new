@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/loading/loading",
+    "pages/login/login",
     "pages/main/main2",
     "pages/teacher/main",
     "pages/teacher/regist",

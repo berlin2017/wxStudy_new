@@ -2,8 +2,8 @@
 <view class='main_container'>
 
   <include src='../common/title' />
-
-  <view class='content'>
+    
+    <view class='content'>
 
     <view class="weui-search-bar" style='display:none;'>
       <view class="weui-search-bar__form">

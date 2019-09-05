@@ -12,6 +12,7 @@ Page({
     teachers: [],
     inputShowed: false,
     inputVal: "",
+    isLogin: false,
 
     teacher_types: [{
         name: "全部",
@@ -135,7 +136,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    this.requestList();
+  
   },
 
   requestList: function() {
@@ -165,7 +166,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.setData({
+      isLogin: app.globalData.isLogin
+    })
+    if (this.data.isLogin) {
+      this.requestList();
+    }
   },
 
   /**
