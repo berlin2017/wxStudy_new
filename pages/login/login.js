@@ -48,6 +48,9 @@ Page({
         app.globalData.userInfo = res.userInfo
         app.globalData.res = res
         that.wxLogin();
+      },
+      fail:function(){
+        wx.hideLoading()
       }
     })
   },

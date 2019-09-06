@@ -4,10 +4,10 @@
 
   <view class="app">
     <include src="../common/title.wxml" />
-    <image src="../Resources/album-xxy.png" class="icon"></image>
+    <image src="../Resources/app_icon.png" class="icon"></image>
 
     <text class="app_name">名师到家</text>
-    <text class="app_company">南京都邦网络科技有限公司</text>
+    <text class="app_company">南京优微课教育科技有限公司</text>
 
   </view>
 
