@@ -37,7 +37,7 @@ Page({
         that.wxLogin();
       },
       fail:function(){
-        this.toMain()
+        that.toMain()
       }
     })
      
